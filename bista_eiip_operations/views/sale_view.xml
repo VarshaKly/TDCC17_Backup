@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_order_form_eiip_tdcc" model="ir.ui.view">
+        <field name="name">sale.order.form.eiip.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook/page[@name='other_information']/group/group[@name='sale_pay']"
+                   position="before">
+                   <group name="eiip" string="Intensive program Details"
+                           attrs="{'invisible': [('program_type', '!=', 'eiip')]}">
+                        <field name="group_id"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                   </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,23 @@
+<odoo>
+
+    <data>
+        <record id="hr_action_dashboard" model="ir.actions.client">
+            <field name="name">Dashboard</field>
+            <field name="tag">hr_dashboard</field>
+        </record>
+
+        <menuitem id="menu_hr_dashboard"
+                  name="Dashboard"
+                  action="hr_action_dashboard"
+                  parent="hr.menu_hr_root"
+                  sequence="-100" groups="base.group_user"/>
+    </data>
+
+    <template id="assets_backend" name="Hr Dashboard assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/bista_hr_dashboard/static/src/js/hr_dashboard.js"/>
+            <link rel="stylesheet" href="/bista_hr_dashboard/static/src/css/hr_dashboard.css"/>
+        </xpath>
+    </template>
+
+</odoo>

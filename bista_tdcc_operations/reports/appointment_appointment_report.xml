@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <report
+            id="action_print_appointment_report"
+            string="Appointment"
+            model="appointment.appointment"
+            report_type="qweb-pdf"
+            file="bista_tdcc_operations.report_appointment"
+            name="bista_tdcc_operations.report_appointment"
+            />
+            
+            <!-- Report action for daily appointment report -->
+            <report
+            id="action_daily_appointment_report"
+            string="Daily Appointment"
+            model="appointment.appointment"
+            report_type="qweb-pdf"
+            file="bista_tdcc_operations.daily_appointment_report"
+            name="bista_tdcc_operations.daily_appointment_report"
+           menu="False"
+            />
+            
+            <!-- Payment Form Report Action -->
+     <report
+        id="tdcc_custom_payment_report"
+        model="account.payment"
+        string="TDCC Customer Payment Receipt"
+        name="bista_tdcc_operations.report_payment_form"
+        file="bista_tdcc_operations.report_payment_form"
+        report_type="qweb-pdf"
+    />
+
+    <report
+        id="action_appointmnt_list_report"
+        model="appointment.appointment"
+        string="Appointment List"
+        name="bista_tdcc_operations.report_appointment_list"
+        file="bista_tdcc_operations.report_appointment_list"
+        report_type="qweb-pdf"
+    />
+
+     <!-- TDCC payment Receipt Paperformat -->
+     <record id="paperformat_payment_receipt_tdcc" model="report.paperformat">
+            <field name="name">TDCC Payment Receipt</field>
+            <field name="default" eval="True" />
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">50</field>
+            <field name="margin_bottom">28</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">45</field>
+            <field name="dpi">90</field>
+            <field name="report_ids"
+                    eval="[(4,ref('bista_tdcc_operations.tdcc_custom_payment_report'))]"></field>
+        </record>
+
+    <!-- Invoice List View paper format -->
+     <record id="custom_appointment_list_view_paperformat" model="report.paperformat">
+        <field name="name">Appointment List View Report</field>
+        <field name="default" eval="True" />
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">50</field>
+        <field name="margin_bottom">20</field>
+        <field name="margin_left">5</field>
+        <field name="margin_right">5</field>
+        <field name="header_line" eval="False" />
+        <field name="header_spacing">40</field>
+        <field name="dpi">90</field>
+        <field name="report_ids"
+                    eval="[(4, ref('action_appointmnt_list_report'))]"></field>
+    </record>
+    </data>
+</odoo>

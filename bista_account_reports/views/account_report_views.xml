@@ -1,0 +1,21 @@
+<odoo>
+
+    <menuitem id="menu_account_tdcc_reports_child"
+              action="bista_account_reports.received_request_wizard"
+              name="Account Reports"
+              parent="bista_tdcc_operations.menu_account_tdcc_reports"
+    />
+    
+    <menuitem id="menu_tax_tdcc_reports_child"
+              action="bista_account_reports.received_tax_request_wizard"
+              name="Vat Report"
+              parent="bista_tdcc_operations.menu_account_tdcc_reports"
+    />
+    
+     <menuitem id="menu_cashflow_reports_child"
+              action="bista_account_reports.received_cashflow_request_wizard"
+              name="Cashflow Report"
+              parent="bista_tdcc_operations.menu_account_tdcc_reports"
+    />
+
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--Student Plan Report Action -->
+    <report
+        id="action_student_plan_report"
+        model="student.plan"
+        string="Student plan"
+        name="bista_tdcc_student_plan.report_student_plan"
+        file="bista_tdcc_student_plan.report_student_plan"
+        report_type="qweb-pdf"
+        menu = "False"
+    />
+
+</odoo>

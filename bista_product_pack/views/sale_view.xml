@@ -1,0 +1,30 @@
+<odoo>
+  <data>
+        <record id="product_bundle_inherit_sale_order_form" model="ir.ui.view">
+            <field name="name">sale.order</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+               <xpath expr="//notebook/page/field[@name='order_line']" position="before">
+                      <button name="bista_product_pack.product_pack_wizard" string="Add Pack" type="action" attrs= "{'invisible':[('state','in', ['manual', 'sale', 'done', 'cancel'])]}" />
+                </xpath>
+                <!-- <xpath expr="//notebook/page/field[@name='order_line']/tree/control" position="inside">
+                     <create string="Add a Pack Product"
+                        context="{'from_pack_product': True}"/>
+                </xpath> -->
+            </field>
+        </record>
+
+        <!-- Inherited view of Account Invoice  -->
+        <record id="product_bundle_inherit_account_invoice_form" model="ir.ui.view">
+            <field name="name">account.invoice</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+               <xpath expr="//notebook/page/field[@name='invoice_line_ids']" position="before">
+                      <button name="bista_product_pack.product_pack_wizard_invoice" string="Add Pack" type="action"/>
+                </xpath>
+            </field>
+        </record>
+  </data>
+</odoo>

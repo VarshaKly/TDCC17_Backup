@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+          <!-- QWeb Reports Loan Request-->
+        <report
+            id="account_loan"
+            model="account.loan"
+            string="Loan Reqeust"
+            report_type="qweb-pdf"
+            name="bista_account_loan.report_loan_request"
+            file="bista_account_loan.report_loan_request"
+        />
+
+
+        <report
+            id="action_loan_report"
+            model="account.loan"
+            string="Loan Report"
+            report_type="qweb-pdf"
+            name="bista_account_loan.report_loan"
+            file="bista_account_loan.report_loan"
+            menu="False"
+            />
+
+        <report
+            id="action_loan_summmary_report"
+            model="account.loan"
+            string="Loan Summary"
+            report_type="qweb-pdf"
+            name="bista_account_loan.report_loan_summary"
+            file="bista_account_loan.report_loan_summary"
+            menu="False"
+            />
+    </data>
+</odoo>

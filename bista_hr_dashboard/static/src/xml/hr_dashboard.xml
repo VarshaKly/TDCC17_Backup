@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="HrDashboardMain">
+        <div class="o_dashboards">
+            <div class="container-fluid o_hr_dashboard">
+            </div>
+        </div>
+    </t>
+
+    <t t-name="EmployeeDashboard">
+        <div class="row main-section">
+            <div class="col-md-4 col-lg-3">
+                <div class="hr_notification">
+                    <div class="hr_notification_head">
+                        <i class="fa fa-birthday-cake fa-lg"/>
+                        Upcoming Birthdays
+                    </div>
+                    <div class="col-xs-12">
+                        <t t-foreach="widget.employee_birthday" t-as="employee">
+                            <div class="col-sm-12 col-lg-12" style="padding:0;">
+                                <div class="text-color">
+                                    <div class="media">
+                                        <img class="img rounded-circle"
+                                             t-attf-src="/web/image?model=hr.employee&amp;field=image_medium&amp;id=#{employee.id}"
+                                             t-att-title="employee.name" t-att-alt="employee.name" />
+                                        <div class="media-body">
+                                            <h4>
+                                                <t t-esc="employee.name" />
+                                            </h4>
+                                            <p class="h6"><t t-esc="employee.job_id" /></p>
+                                            <p class="h6"><t t-esc="employee.birthday"/></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                 </div>
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <div class="col-xs-12  hr_notification" style="padding: 0;">
+                    <div class="col-xs-12" style="padding:0;">
+                        <div class="hr_notification_head">
+                        <i class="fa fa-calendar fa-lg"/>
+                        Upcoming Events
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <t t-foreach="widget.upcoming_events" t-as="event">
+                            <div class="col-sm-12 col-lg-12" style="padding:0;">
+                                <div class="text-color">
+                                    <div class="media">
+                                       <div class="media-body">
+                                            <h4>
+                                                <t t-esc="event.name" />
+                                            </h4>
+                                            <t t-if="event.location">
+                                                <b><p><t t-esc="event.location" /></p></b>
+                                            </t>
+                                            <p class="h4">
+                                                From <b><t t-esc="event.date_begin" /></b>
+                                                To <b><t t-esc="event.date_end" /></b>
+                                            </p>
+                                            <t t-if="event.is_online">
+                                              <p>Online</p>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                 </div>
+            </div>
+
+            <div class="col-md-4 col-lg-3">
+                <div class="col-xs-12  hr_notification" style="padding: 0;">
+                    <div class="col-xs-12" style="padding:0;">
+                        <div class="hr_notification_head">
+                        <i class="fa fa-bullhorn fa-lg"></i>
+                        Upcoming Announcements
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <t t-foreach="widget.announcements" t-as="announcement">
+                            <div class="col-sm-12 col-lg-12" style="padding:0;">
+                                <div class="text-color">
+                                    <div class="media">
+                                        <div class="media-body">
+                                            <h4>
+                                               <t t-esc="announcement.name"/>
+                                            </h4>
+                                        </div>
+                                        <a role="button" tabindex="0" t-att-data-id="announcement.id" class="announcement_info fa fa-eye" 
+                                           style="margin-right:5px;" aria-label="View Announcement"
+                                           title="View Announcement"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                 </div>
+            </div>
+
+        </div>
+    </t>
+
+</templates>
